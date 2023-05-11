@@ -6,9 +6,13 @@ tasks:
     before: yarn global add express
     init: yarn install
     command: yarn build
+  - name: Start web server
+    init: python -m http.server 8000
 
 # Ports to expose on workspace startup
 ports:
+  - port: 8000
+    onOpen: open-preview
   - port: 3000
     onOpen: open-preview
     name: Website
